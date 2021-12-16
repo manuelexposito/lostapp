@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "lostapp-2745c": {
+      "hosting": {
+        "lostapp": [
+          "lostapp-2745c"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "lostapp-2745c"
+  }
+}
