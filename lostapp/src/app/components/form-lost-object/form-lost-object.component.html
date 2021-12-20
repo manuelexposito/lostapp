@@ -1,6 +1,6 @@
 <app-toolbar></app-toolbar>
 <form [formGroup]="lostObjectForm" (ngSubmit)="onSubmit()" class="form">
-
+    <button style="width:140px;" mat-button [routerLink]="['/home']">Volver atrás</button>
     <mat-form-field appearance="fill">
         <mat-label>Di a qué categoría pertenece</mat-label>
         <mat-select formControlName="category">

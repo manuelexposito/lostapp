@@ -1,6 +1,6 @@
 .caja{
 
-    border: 1px solid green;
+    
     width: 30%;
     height: 60%;
     position: relative;
@@ -15,6 +15,28 @@
     flex-direction: column;
     border: 1px solid blue;
     align-items: center;
+    
+}
+
+.caja-secundaria{
+
+    
+    width: 30%;
+    height: 60%;
+    position: relative;
+    right: -60px;
+    top: 80px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+
+
+.caja-secundaria button{
+    margin: 10px;
 }
 
 .caja-principal button{

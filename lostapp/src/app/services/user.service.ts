@@ -6,7 +6,7 @@ import firebase from 'firebase/compat/app';
 
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Category } from '../models/interfaces/lost-object';
+import { Category, LostObject } from '../models/interfaces/lost-object';
 import { Observable } from 'rxjs';
 
 const USER_ID = localStorage.getItem('uid');
@@ -64,10 +64,11 @@ addToFoundObjects(){
 
 getLostObjectsList(){
 
+  return this.firestore.collection<LostObject>(`users/${USER_ID}/lost-objects`).valueChanges();
 }
 
 getFoundObjectsList(){
-  
+  return this.firestore.collection<LostObject>(`users/${USER_ID}/found-objects`).valueChanges();
 }
 
 //TODO: Este método debería ir en otro servicio
@@ -75,5 +76,6 @@ getCategories() : AngularFirestoreCollection<Category>{
   return this.firestore.collection(`categories`);
   //return this.firestore.collection<Category>('categories').valueChanges();
 }
+
 
 }

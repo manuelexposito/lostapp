@@ -2,12 +2,16 @@
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
      <mat-icon>menu</mat-icon>
    </button>
-   <span>My App</span>
+   <span>LostApp</span>
    <span class="example-spacer"></span>
-   <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-     <mat-icon>favorite</mat-icon>
-   </button>
-   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
+   <button mat-button [matMenuTriggerFor]="menu">
+    <div style="display: flex;">
+      <h2 style="margin-right: 10px;">{{username}}</h2>
+     <!-- <img [src]="userImg" width="30" style="border-radius: 100%" />-->
+    </div>
+
   </button>
+   <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout()">Cerrar sesión</button>
+  </mat-menu>
  </mat-toolbar>

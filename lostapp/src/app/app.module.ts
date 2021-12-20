@@ -11,7 +11,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
-import { LoginComponent } from './components/login/login.component';
+
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule, USE_DEVICE_LANGUAGE, USE_EMULATOR as USE_AUTH_EMULATOR } from '@angular/fire/compat/auth';
@@ -20,16 +20,17 @@ import { HomeComponent } from './pages/home/home.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { FormLostObjectComponent } from './components/form-lost-object/form-lost-object.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LostObjectItemComponent } from './components/lost-object-item/lost-object-item.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    LoginComponent,
     HomeComponent,
     ToolbarComponent,
-    FormLostObjectComponent
+    FormLostObjectComponent,
+    LostObjectItemComponent
   ],
   imports: [
     BrowserModule,

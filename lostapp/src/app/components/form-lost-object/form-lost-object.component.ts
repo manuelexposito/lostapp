@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Category } from 'src/app/models/interfaces/lost-object';
 import { UserService } from 'src/app/services/user.service';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-lost-object',
@@ -18,7 +19,7 @@ export class FormLostObjectComponent implements OnInit {
     description : new FormControl(),
     ubication : new FormControl()
   })
-  constructor(private userService : UserService ) { }
+  constructor(private userService : UserService, private router : Router ) { }
 
   ngOnInit(): void {
     this.getCategories();
@@ -62,13 +63,15 @@ export class FormLostObjectComponent implements OnInit {
     let idCategory = this.lostObjectForm.controls['category'].value;
     let description = this.lostObjectForm.controls['description'].value;
     let ubication = this.lostObjectForm.controls['ubication'].value;
-    this.userService.addToLostObjects(idCategory, description, ubication)
+    this.userService.addToLostObjects(idCategory, description, ubication).then(
+      () => this.router.navigate(['/home'])
+    )
 
   }
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    alert(this.lostObjectForm.controls['category'].value);
+    console.warn(this.lostObjectForm.controls['category'].value);
   }
 
 
