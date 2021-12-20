@@ -1,0 +1,24 @@
+.caja{
+
+    border: 1px solid green;
+    width: 30%;
+    height: 60%;
+    position: relative;
+    right: -60px;
+    top: 80px;
+    padding: 50px;
+    
+}
+
+.caja-principal{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid blue;
+    align-items: center;
+}
+
+.caja-principal button{
+    margin: 20px;
+    padding: 30px;
+    width: 50%;
+}

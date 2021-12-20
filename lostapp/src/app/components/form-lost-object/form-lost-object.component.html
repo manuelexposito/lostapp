@@ -1,0 +1,25 @@
+<app-toolbar></app-toolbar>
+<form [formGroup]="lostObjectForm" (ngSubmit)="onSubmit()" class="form">
+
+    <mat-form-field appearance="fill">
+        <mat-label>Di a qué categoría pertenece</mat-label>
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let c of categories" [value]="c.id">
+            {{c.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Describe el objeto que has perdido</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>City</mat-label>
+      <input matInput placeholder="Ex. San Francisco">
+    </mat-form-field>
+    <mat-card style="height: 200px;"> Aquí iría el mapa </mat-card>
+
+    <button mat-raised-button color="primary" style="margin-top: 20px; width: 80px;" (click)="registerLostObject()"> Buscar </button>
+</form>
