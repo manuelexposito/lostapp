@@ -52,7 +52,9 @@ addToLostObjects( idCategory : string, objectDescription : string, objectUbicati
 
     description : objectDescription,
     categoryId : idCategory,
-    ubication : objectUbication
+    ubication : objectUbication,
+    //Aquí habría que hacer una comprobación para que sea true o false buscándolo en la base de datos
+    hasMatch : false
 
   })
 
@@ -77,5 +79,10 @@ getCategories() : AngularFirestoreCollection<Category>{
   //return this.firestore.collection<Category>('categories').valueChanges();
 }
 
+getCategoryNameById(categoryId : string){
+
+  //return this.firestore.collection<Category>('categories').doc(categoryId).valueChanges()
+  return this.firestore.collection('categories').doc(categoryId).get()
+}
 
 }

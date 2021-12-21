@@ -3,6 +3,7 @@ export interface LostObject {
     description : string;
     categoryId : string;
     ubication : string;
+    hasMatch : boolean;
 }
 
 export interface Category{

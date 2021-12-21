@@ -1,3 +1,10 @@
 
 <!--TODO : Hacer un método que devuelva el nombre de la categoría pasándole el ID-->
-<p>{{lostObject.description}}</p>
+
+<div class="item">
+
+    <span class="ellipsis"><strong>{{category.name}}</strong></span>
+    <p class="ellipsis">{{lostObject.description}}</p>
+    <mat-chip style="border-radius: 30px; font-size: 11px; padding: 10px;" *ngIf="!lostObject.hasMatch">Buscando...</mat-chip>
+
+</div>
