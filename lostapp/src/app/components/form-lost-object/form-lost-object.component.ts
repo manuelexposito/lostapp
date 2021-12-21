@@ -74,6 +74,12 @@ export class FormLostObjectComponent implements OnInit {
     console.warn(this.lostObjectForm.controls['category'].value);
   }
 
+  getUbication(event: google.maps.MapMouseEvent) {
+    this.lostObjectForm.controls['ubication'].setValue(`${event.latLng?.lat()} , ${event.latLng?.lng()}`)
+    console.log(`RECIBIDO EN PADRE: ${event.latLng?.lat()} , ${event.latLng?.lng()}`);
+
+  }
+
 
 
 }

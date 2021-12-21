@@ -19,9 +19,11 @@ import { AngularFireAuthGuardModule } from '@angular/fire/compat/auth-guard';
 import { HomeComponent } from './pages/home/home.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { FormLostObjectComponent } from './components/form-lost-object/form-lost-object.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LostObjectItemComponent } from './components/lost-object-item/lost-object-item.component';
-
+import { MapComponent } from './components/map/map.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { HttpClient, HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { LostObjectItemComponent } from './components/lost-object-item/lost-obje
     HomeComponent,
     ToolbarComponent,
     FormLostObjectComponent,
-    LostObjectItemComponent
+    LostObjectItemComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,10 @@ import { LostObjectItemComponent } from './components/lost-object-item/lost-obje
     MaterialImportsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    FormsModule,
+    GoogleMapsModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireAuthGuardModule,

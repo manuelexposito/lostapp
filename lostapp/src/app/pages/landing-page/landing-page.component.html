@@ -1,7 +1,11 @@
 <html class="page">
   <div class="caja">
     <h1 class="texto">¿Has perdido algo? Registra tu objeto en LostApp para ver si alguien lo ha encontrado. O quizás tienes algo y no sabes de quién es, ¡te ayudaremos a encontrar a su dueño!</h1>
-    <button class="button" mat-raised-button (click)="doLogin()">Iniciar sesión con Google</button>
+    <div style="display: flex; align-items: center;">
+      <img src="../../../assets/img/5-01.svg" width="50%">
+      <button class="button" mat-raised-button (click)="doLogin()"><i class="fab fa-google google-style"></i> <span style="color: white;">Iniciar sesión con Google</span></button>
+    </div>
+    
   </div>
  
 </html>

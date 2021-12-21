@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { timeStamp } from 'console';
+
 import { Category, LostObject } from 'src/app/models/interfaces/lost-object';
 import { UserService } from 'src/app/services/user.service';
 
@@ -30,7 +30,5 @@ export class LostObjectItemComponent implements OnInit {
       this.userService.getCategoryNameById(this.lostObject.categoryId).subscribe(s => this.category = s.data() as Category)
 
   }
-  
-
 
 }

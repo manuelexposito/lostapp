@@ -61,7 +61,7 @@ addToLostObjects( idCategory : string, objectDescription : string, objectUbicati
 }
 
 addToFoundObjects(){
-
+  //TODO
 }
 
 getLostObjectsList(){
@@ -71,6 +71,11 @@ getLostObjectsList(){
 
 getFoundObjectsList(){
   return this.firestore.collection<LostObject>(`users/${USER_ID}/found-objects`).valueChanges();
+}
+
+
+deleteObject(objectId : string){
+  this.firestore.collection(`users/${USER_ID}/lost-objects`).doc(objectId).delete()
 }
 
 //TODO: Este método debería ir en otro servicio
