@@ -60,10 +60,19 @@ addToLostObjects( idCategory : string, objectDescription : string, objectUbicati
 
 }
 
-addToFoundObjects(){
+addToFoundObjects( idCategory : string, objectDescription : string, objectUbication : string ){
+
+  return this.firestore.collection(`users/${USER_ID}/found-objects`).add({
+
+    description : objectDescription,
+    categoryId : idCategory,
+    ubication : objectUbication,
+    //Aquí habría que hacer una comprobación para que sea true o false buscándolo en la base de datos
+    hasMatch : false
+
+  })
 
 }
-
 getLostObjectsList(){
 
   return this.firestore.collection<LostObject>(`users/${USER_ID}/lost-objects`).valueChanges();
@@ -71,6 +80,11 @@ getLostObjectsList(){
 
 getFoundObjectsList(){
   return this.firestore.collection<LostObject>(`users/${USER_ID}/found-objects`).valueChanges();
+}
+
+
+deleteObject(objectId : string){
+  this.firestore.collection(`users/${USER_ID}/lost-objects`).doc(objectId).delete()
 }
 
 //TODO: Este método debería ir en otro servicio

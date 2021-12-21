@@ -10,20 +10,24 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class HomeComponent implements OnInit {
 
-  foundObjects !: LostObject [];
-  lostObjects !: LostObject [];
+  foundObjects : LostObject [] = [];
+  lostObjects : LostObject [] = [];
 
+  // foundObjectsExist : boolean = false;
+ // lostObjectsExist : boolean = false;
   constructor(private userService : UserService) { }
 
   ngOnInit(): void {
     this.userService.getLostObjectsList().subscribe(
-      r => this.lostObjects = r
+      r => {this.lostObjects = r}
     )
 
     this.userService.getFoundObjectsList().subscribe(
-      r => this.foundObjects = r
+      r => {this.foundObjects = r}
     )
+
   }
+
 
 
 }

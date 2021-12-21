@@ -11,7 +11,8 @@ const redirectUnathorizedToLanding = () => redirectUnauthorizedTo(['landing-page
 const routes: Routes = [
   {path:'landing-page', component: LandingPageComponent},
   {path: 'home', component:HomeComponent, ...canActivate(redirectUnathorizedToLanding)},
-  {path: 'add-lost-object', component:FormLostObjectComponent},
+  {path: 'add-lost-object', component:FormLostObjectComponent, ...canActivate(redirectUnathorizedToLanding)},
+  {path: 'add-found-object', component:FormLostObjectComponent, ...canActivate(redirectUnathorizedToLanding)},
   {path: '', pathMatch:'full', component:LandingPageComponent, ...canActivate(redirectLoggedInToHome) }
 ];
 
