@@ -12,7 +12,7 @@ export class LostObjectItemComponent implements OnInit {
 
   @Input() lostObject !: LostObject
   //categoryName : string ;
-  category !: Category;
+  category : Category = {};
   constructor(private userService : UserService) { }
 
   ngOnInit(): void {

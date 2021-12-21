@@ -22,5 +22,6 @@
     <!--<mat-card style="height: 200px;"> Aquí iría el mapa </mat-card>-->
     <app-map formControlName="ubication" (ubication)="getUbication($event)"></app-map>
 
-    <button mat-raised-button color="primary" style="margin-top: 20px; width: 80px;" (click)="registerLostObject()"> Buscar </button>
+    <button *ngIf="currentRoute == '/add-lost-object'" mat-raised-button color="primary" style="margin-top: 20px; width: 80px;" (click)="registerLostObject()"> Buscar </button>
+    <button *ngIf="currentRoute == '/add-found-object'" mat-raised-button color="primary" style="margin-top: 20px; width: 80px;" (click)="registerFoundObject()"> Buscar </button>
 </form>

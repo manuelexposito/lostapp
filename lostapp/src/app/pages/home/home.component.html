@@ -4,27 +4,31 @@
     <!--Si no hay elementos en ninguna lista-->
     <div class="caja-principal">
         <button mat-raised-button routerLink="/add-lost-object"> He perdido algo </button>
-        <button mat-raised-button> He encontrado algo </button>
+        <button mat-raised-button routerLink="/add-found-object"> He encontrado algo </button>
     </div>
 </div>
 <!--Si hay elementos en alguna lista-->
-<div class="caja-secundaria" *ngIf="foundObjects.length > 1 || lostObjects.length > 1">
+<div class="caja-secundaria" *ngIf="foundObjects.length >= 1 || lostObjects.length >= 1">
     <mat-tab-group>
         <mat-tab label=" Objetos perdidos">
             <div *ngIf="lostObjects.length < 1">
                 <span>No tienes ningún objeto perdido registrado.</span>
             </div>
-            <app-lost-object-item class="card-object"  *ngFor="let o of lostObjects" [lostObject]="o">Objeto perdido</app-lost-object-item>
+            <app-lost-object-item class="card-object" *ngFor="let o of lostObjects" [lostObject]="o">Objeto perdido
+            </app-lost-object-item>
         </mat-tab>
         <mat-tab label="Objetos encontrados">
             <div *ngIf="foundObjects.length < 1">
                 <span>Aún no has encontrado ningún objeto.</span>
             </div>
+
+            <app-lost-object-item class="card-object" *ngFor="let f of foundObjects" [lostObject]="f">Objeto encontrado
+            </app-lost-object-item>
         </mat-tab>
     </mat-tab-group>
     <div class="botones-secundario">
         <button mat-raised-button routerLink="/add-lost-object" color="primary"> He perdido algo </button>
-        <button mat-raised-button color="primary"> He encontrado algo </button>
+        <button mat-raised-button routerLink="/add-found-object" color="primary"> He encontrado algo </button>
     </div>
 </div>
 

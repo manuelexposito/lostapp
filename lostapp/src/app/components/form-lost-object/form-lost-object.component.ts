@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Category } from 'src/app/models/interfaces/lost-object';
 import { UserService } from 'src/app/services/user.service';
 import { map } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-lost-object',
@@ -13,27 +13,25 @@ import { Router } from '@angular/router';
 export class FormLostObjectComponent implements OnInit {
 
   categories !: Category [];
+  
+  currentRoute!: string;
 
   lostObjectForm = new FormGroup({
     category : new FormControl(),
     description : new FormControl(),
     ubication : new FormControl()
   })
-  constructor(private userService : UserService, private router : Router ) { }
+  constructor(private userService : UserService, private router : Router ) {
+    
+   }
+
 
   ngOnInit(): void {
     this.getCategories();
-    console.log(this.categories)
+    this.currentRoute = this.router.url;
+    console.log(this.currentRoute)
   }
 
-  addLostObject(){
-
-    let categoryObject = this.lostObjectForm.controls['category'].value;
-    let descriptionObject = this.lostObjectForm.controls['description'].value;
-    let ubicationObject = this.lostObjectForm.controls['ubication'].value;
-
-    this.userService.addToLostObjects(categoryObject, descriptionObject, ubicationObject)
-  }
 
   getCategories(){
 
@@ -64,6 +62,18 @@ export class FormLostObjectComponent implements OnInit {
     let description = this.lostObjectForm.controls['description'].value;
     let ubication = this.lostObjectForm.controls['ubication'].value;
     this.userService.addToLostObjects(idCategory, description, ubication).then(
+      () => this.router.navigate(['/home'])
+    )
+
+  }
+
+  //TODO: Habría que buscar una mejor forma de refactorizar ambos codigos..
+  registerFoundObject(){
+
+    let idCategory = this.lostObjectForm.controls['category'].value;
+    let description = this.lostObjectForm.controls['description'].value;
+    let ubication = this.lostObjectForm.controls['ubication'].value;
+    this.userService.addToFoundObjects(idCategory, description, ubication).then(
       () => this.router.navigate(['/home'])
     )
 
